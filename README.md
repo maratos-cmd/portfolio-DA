@@ -1,4 +1,3 @@
-hub 
 # Repository of Data Analytics Projects
 | Project name | Description | Tools |
 |----------|----------|----------|
