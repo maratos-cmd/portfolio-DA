@@ -1,15 +1,15 @@
 # Netflix EDA Project
 
-### Goals:
-___
+## Goals:
+
 The main objective of this study was to analyze the dataset of movies and TV shows on the Netflix platform. The primary goal was to conduct a comprehensive analysis, explore the data's key characteristics, and identify interesting patterns and trends in the world of movies and TV series.
 
-### Project Description:
+## Project Description:
 
 The project aimed to conduct an exploratory data analysis (EDA) of a dataset related to movies and TV shows available on the Netflix platform. The main objective was to analyze and understand the key characteristics of the data, as well as identify interesting patterns and trends in the world of films and series.
 
 
-### Research Conclusion:
+## Research Conclusion:
 
 **Age Restrictions:** Most of the Series/TV Shows are intended for viewers over 13 years, and there are very few movies with no age restrictions, primarily catering to audiences over 17.
 
@@ -29,7 +29,7 @@ The project aimed to conduct an exploratory data analysis (EDA) of a dataset rel
 
 **Award-Winning:** "Sesame Street" stands out as the most awarded TV Show, while "Parasite" is recognized as the most awarded Movie.
 
-### Usage of Research Findings:
+## Usage of Research Findings:
 
 **Netflix Platform:** Analyzing the ratio of movies and TV shows, as well as popular genres and tags, can help the Netflix platform optimize its content and assortment, taking into account the preferences and interests of the audience.
 
@@ -37,7 +37,7 @@ The project aimed to conduct an exploratory data analysis (EDA) of a dataset rel
 
 **Viewers and Audience:** Researching viewing ratings and preferences for genres and tags allows viewers to choose content that aligns with their interests and taste.
 
-### Technical Features of the Project:
+## Technical Features of the Project:
 
 The data was heavily noisy with missing values, and preprocessing was performed to handle this issue. Additionally, the data was redundant, which required the creation of a universal view rating system 
 
@@ -45,7 +45,7 @@ The data was heavily noisy with missing values, and preprocessing was performed 
 
 **Data Visualization:** To present the findings effectively, data visualization techniques such as bar plots
 
-### Project Tools:
+## Project Tools:
 
 - Python
 - Pandas
