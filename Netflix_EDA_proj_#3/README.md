@@ -1,7 +1,7 @@
 # Netflix EDA Project
 
 ### Goals:
---
+___
 The main objective of this study was to analyze the dataset of movies and TV shows on the Netflix platform. The primary goal was to conduct a comprehensive analysis, explore the data's key characteristics, and identify interesting patterns and trends in the world of movies and TV series.
 
 ### Project Description:
