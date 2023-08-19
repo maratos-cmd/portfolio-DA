@@ -18,3 +18,7 @@ The project required meticulous design and implementation to accurately represen
 **Dashboard Development:** The creation of the dashboard involved effective data visualization techniques and user-friendly layout design.
 
 **Line Chart Implementation:** The line chart was designed to dynamically update and display revenue data, offering an illustrative tool for understanding revenue patterns and trends.
+
+## Project Tools:
+
+- Excel
