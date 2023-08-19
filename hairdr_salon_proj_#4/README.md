@@ -3,6 +3,8 @@
 The primary objective of this project was to design and develop an Excel-based solution tailored for a hairdressing salon, incorporating a comprehensive dashboard and informative line chart. The dashboard showcases real-time sales results, cash register balances, and discount insights, while the line chart provides a visual representation of revenue trends for the current and previous months, alongside monthly averages.
 
 ## Project Description:
+**PDF file - examples of every .xlsx page**
+
 The project focused on creating a dynamic and user-friendly Excel spreadsheet specifically designed for managing and analyzing data relevant to a hairdressing salon's operations. The Excel solution included a well-structured dashboard that offers an at-a-glance overview of critical business metrics, such as sales performance, cash availability, and discount utilization. In addition, a line chart was implemented to graphically depict revenue fluctuations over time, enabling easy comparison between the current and past months, and highlighting the average revenue trends.
 
 ## Usage of Project:
