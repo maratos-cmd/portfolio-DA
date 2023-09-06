@@ -5,20 +5,13 @@ The primary objective of this project was to scrutinize datasets provided by Spr
 
 ## Project Description:
 
-**Data Quality Assessment:**
-The initial phase involved an exhaustive examination of the datasets associated with Sprocket Central Pty Ltd's customers.
-
-**Data Quality Issues:** Comprehensive identification of data quality issues, such as missing values, inconsistencies, and potential outliers.
+**Data Quality Assessment:** Comprehensive identification of data quality issues, such as missing values, inconsistencies, and potential outliers.  
 Outcome: A clear communication was drafted and sent to the client, highlighting all the identified data quality concerns, providing them with a transparent view of the current state of their data.
-Customer Targeting Strategy:
-The subsequent phase aimed at devising a strategy for identifying the ideal customers Sprocket Central Pty Ltd should target.
 
-**Presentation:** Creation of a PowerPoint presentation detailing the approach to be undertaken. The strategy was split into three core phases: Data Exploration, Model Development, and Interpretation.
+**Presentation "Customer Targeting Strategy":** Creation of a PowerPoint presentation detailing the approach to be undertaken. The strategy was split into three core phases: Data Exploration, Model Development, and Interpretation.  
 Outcome: A structured approach to sift through the dataset, develop predictive models, and extract meaningful insights about potential high-value customers.
-Dashboard Development:
-The final phase was dedicated to visualizing the outcomes and insights derived from the data.
 
-**Dashboard:** A comprehensive dashboard was crafted, summarizing the data analysis results. This dashboard was tailored to present who, among the new 1000 customers, Sprocket Central Pty Ltd should specifically target.
+**Dashboard Development:** A comprehensive dashboard was crafted, summarizing the data analysis results. This dashboard was tailored to present who, among the new 1000 customers, Sprocket Central Pty Ltd should specifically target.  
 Outcome: An interactive, user-friendly dashboard that provides a clear visual representation of the key customers to target, backed by data-driven insights.
 
 ## Usage of Research Findings:
