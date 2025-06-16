@@ -1,0 +1,820 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<grammars>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://hflabs.ru/cdi/soap/2_13" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://hflabs.ru/cdi/soap/2_13" version="1.0">
+<xs:element name="ErrorMessage" type="tns:ErrorMessage"/>
+<xs:element name="attribute" type="tns:WAttribute"/>
+<xs:element name="checkBlackListByHid" type="tns:CheckBlackListByHidRequest"/>
+<xs:element name="checkBlackListByHidResponse" type="tns:CheckBlacklistResponse"/>
+<xs:element name="checkBlacklist" type="tns:CheckBlacklistRequest"/>
+<xs:element name="checkBlacklistByRawID" type="tns:CheckBlacklistByRawIDRequest"/>
+<xs:element name="checkBlacklistByRawIDResponse" type="tns:CheckBlacklistResponse"/>
+<xs:element name="checkBlacklistResponse" type="tns:CheckBlacklistResponse"/>
+<xs:element name="close" type="tns:CloseRequest"/>
+<xs:element name="closeAttribute" type="tns:CloseAttributeRequest"/>
+<xs:element name="closeAttributeByRawId" type="tns:CloseAttributeByRawIdRequest"/>
+<xs:element name="closeAttributeByRawIdResponse" type="tns:CloseAttributeByRawIdResponse"/>
+<xs:element name="closeAttributeResponse" type="tns:CloseAttributeResponse"/>
+<xs:element name="closeResponse" type="tns:CloseResponse"/>
+<xs:element name="depersonalize" type="tns:DepersonalizeRequest"/>
+<xs:element name="depersonalizeResponse" type="tns:DepersonalizeResponse"/>
+<xs:element name="errorMessage" type="tns:ErrorMessage"/>
+<xs:element name="findInFns" type="tns:FindInFnsRequest"/>
+<xs:element name="findInFnsResponse" type="tns:FindInFnsResponse"/>
+<xs:element name="fuzzySearch" type="tns:FuzzySearchRequest"/>
+<xs:element name="fuzzySearchResponse" type="tns:FuzzySearchResponse"/>
+<xs:element name="getByHID" type="tns:GetByHIDRequest"/>
+<xs:element name="getByHIDResponse" type="tns:GetByHIDResponse"/>
+<xs:element name="getByRawID" type="tns:GetByRawIDRequest"/>
+<xs:element name="getByRawIDResponse" type="tns:GetByRawIDResponse"/>
+<xs:element name="getReference" type="tns:GetReferenceRequest"/>
+<xs:element name="getReferenceResponse" type="tns:GetReferenceResponse"/>
+<xs:element name="getRelations" type="tns:GetRelationsRequest"/>
+<xs:element name="getRelationsResponse" type="tns:GetRelationsResponse"/>
+<xs:element name="getSourceAttributes" type="tns:GetSourceAttributesRequest"/>
+<xs:element name="getSourceAttributesResponse" type="tns:GetSourceAttributesResponse"/>
+<xs:element name="matchedParty" type="tns:WMatchedParty"/>
+<xs:element name="party" type="tns:WParty"/>
+<xs:element name="reference" type="tns:WReference"/>
+<xs:element name="relation" type="tns:WRelation"/>
+<xs:element name="save" type="tns:SaveRequest"/>
+<xs:element name="saveAndMerge" type="tns:SaveAndMergeRequest"/>
+<xs:element name="saveAndMergeResponse" type="tns:SaveAndMergeResponse"/>
+<xs:element name="saveConsents" type="tns:SaveConsentsRequest"/>
+<xs:element name="saveConsentsResponse" type="tns:SaveConsentsResponse"/>
+<xs:element name="saveRelations" type="tns:SaveRelationsRequest"/>
+<xs:element name="saveRelationsResponse" type="tns:SaveRelationsResponse"/>
+<xs:element name="saveResponse" type="tns:SaveResponse"/>
+<xs:element name="search" type="tns:SearchRequest"/>
+<xs:element name="searchConsents" type="tns:SearchConsentsRequest"/>
+<xs:element name="searchConsentsResponse" type="tns:SearchConsentsResponse"/>
+<xs:element name="searchRelatedParties" type="tns:SearchRelatedPartiesRequest"/>
+<xs:element name="searchRelatedPartiesResponse" type="tns:SearchRelatedPartiesResponse"/>
+<xs:element name="searchResponse" type="tns:SearchResponse"/>
+<xs:element name="unmergeParty" type="tns:UnmergePartyRequest"/>
+<xs:element name="unmergePartyResponse" type="tns:UnmergePartyResponse"/>
+<xs:complexType name="SearchRequest">
+<xs:sequence>
+<xs:element name="query" type="xs:string"/>
+<xs:element minOccurs="0" name="restriction" type="xs:string"/>
+<xs:element minOccurs="0" name="partyType" type="xs:string"/>
+<xs:element minOccurs="0" name="include" type="tns:WInclude"/>
+<xs:element minOccurs="0" name="customInclude" type="tns:WCustomInclude"/>
+<xs:element minOccurs="0" name="maxCount" type="xs:positiveInteger"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="WInclude">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="partyInfo" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="WCustomInclude">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="partyInfo" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CheckBlacklistRequest">
+<xs:sequence>
+<xs:element name="party" type="tns:WParty"/>
+<xs:element minOccurs="0" name="includePartyFields" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="WParty">
+<xs:complexContent>
+<xs:extension base="tns:WSourceParty">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" nillable="true" type="tns:WAttribute"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="attributeRelation" nillable="true" type="tns:WAttributeRelation"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="pastAttribute" nillable="true" type="tns:WAttribute"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="source" nillable="true" type="tns:WSourceParty"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="relation" nillable="true" type="tns:WRelation"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="conflict" nillable="true" type="tns:WUpdateConflict"/>
+</xs:sequence>
+<xs:attribute name="type" type="xs:string" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="WSourceParty">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="field" nillable="true" type="tns:WField"/>
+</xs:sequence>
+<xs:attribute name="hid" type="xs:long"/>
+<xs:attribute name="sourceSystem" type="xs:string"/>
+<xs:attribute name="rawId" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="WAttribute">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="field" nillable="true" type="tns:WField"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="subattribute" nillable="true" type="tns:WSubattribute"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="source" nillable="true" type="tns:WSourceAttribute"/>
+</xs:sequence>
+<xs:attribute name="type" type="xs:string" use="required"/>
+<xs:attribute name="hid" type="xs:long"/>
+<xs:attribute name="rawId" type="xs:string"/>
+<xs:attribute name="deleted" type="xs:boolean"/>
+</xs:complexType>
+<xs:complexType name="WField">
+<xs:simpleContent>
+<xs:extension base="xs:string">
+<xs:attribute name="name" type="xs:string" use="required"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="WSubattribute">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="field" nillable="true" type="tns:WField"/>
+</xs:sequence>
+<xs:attribute name="type" type="xs:string" use="required"/>
+</xs:complexType>
+<xs:complexType name="WSourceAttribute">
+<xs:sequence/>
+<xs:attribute name="sourceSystem" type="xs:string"/>
+<xs:attribute name="partyHid" type="xs:long"/>
+<xs:attribute name="hid" type="xs:long"/>
+<xs:attribute name="rawId" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="WAttributeRelation">
+<xs:sequence>
+<xs:element minOccurs="0" name="first" type="tns:WAttributeRelationEdge"/>
+<xs:element minOccurs="0" name="second" type="tns:WAttributeRelationEdge"/>
+</xs:sequence>
+<xs:attribute name="type" type="xs:long" use="required"/>
+<xs:attribute name="hid" type="xs:long"/>
+<xs:attribute name="deleted" type="xs:boolean"/>
+</xs:complexType>
+<xs:complexType name="WAttributeRelationEdge">
+<xs:sequence/>
+<xs:attribute name="type" type="xs:string" use="required"/>
+<xs:attribute name="rawId" type="xs:string"/>
+<xs:attribute name="hid" type="xs:long"/>
+</xs:complexType>
+<xs:complexType name="WRelation">
+<xs:sequence>
+<xs:element minOccurs="0" name="first" type="tns:WRelationEdge"/>
+<xs:element minOccurs="0" name="second" type="tns:WRelationEdge"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="field" nillable="true" type="tns:WField"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" nillable="true" type="tns:WAttribute"/>
+</xs:sequence>
+<xs:attribute name="type" type="xs:long" use="required"/>
+<xs:attribute name="deleted" type="xs:boolean"/>
+<xs:attribute name="hashcode" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="WRelationEdge">
+<xs:complexContent>
+<xs:extension base="tns:WEssenceIdentifier">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="field" nillable="true" type="tns:WField"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="source" nillable="true" type="tns:WSourceParty"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="WEssenceIdentifier">
+<xs:sequence/>
+<xs:attribute name="type" type="xs:string" use="required"/>
+<xs:attribute name="hid" type="xs:long"/>
+<xs:attribute name="rawId" type="xs:string"/>
+<xs:attribute name="sourceSystem" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="WUpdateConflict">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="rule" type="xs:string"/>
+</xs:sequence>
+<xs:attribute name="id" type="xs:long" use="required"/>
+<xs:attribute name="rawId" type="xs:string"/>
+<xs:attribute name="sourceSystem" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="SaveConsentsRequest">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="party" type="tns:WParty"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SaveResponse">
+<xs:sequence>
+<xs:element name="party" type="tns:WParty"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CloseResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="CloseAttributeRequest">
+<xs:sequence>
+<xs:element name="partyType" type="xs:string"/>
+<xs:element name="attributeType" type="xs:string"/>
+<xs:element name="attributeHid" type="xs:long"/>
+<xs:element minOccurs="0" name="flags" type="xs:string"/>
+<xs:element default="true" minOccurs="0" name="savePastValue" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CheckBlacklistResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="party" type="tns:WParty"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="matchedParty" nillable="true" type="tns:WMatchedParty"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="WMatchedParty">
+<xs:sequence>
+<xs:element name="matchRule" type="xs:string"/>
+<xs:element name="matchScope" type="xs:int"/>
+<xs:element name="party" type="tns:WParty"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SearchResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="party" nillable="true" type="tns:WParty"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="UnmergePartyResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="SearchRelatedPartiesRequest">
+<xs:sequence>
+<xs:element name="firstPartySearch" type="tns:WPartySearch"/>
+<xs:element minOccurs="0" name="secondPartySearch" type="tns:WPartySearch"/>
+<xs:element minOccurs="0" name="relationTypes" type="tns:WRelationTypes"/>
+<xs:element minOccurs="0" name="include" type="tns:WInclude"/>
+<xs:element default="false" minOccurs="0" name="returnSourceParties" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="WPartySearch">
+<xs:sequence>
+<xs:element name="query" type="xs:string"/>
+<xs:element name="partyType" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="WRelationTypes">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="relationType" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="UnmergePartyRequest">
+<xs:sequence>
+<xs:element name="sourceSystem" type="xs:string"/>
+<xs:element name="rawId" type="xs:string"/>
+<xs:element name="partyType" type="xs:string"/>
+<xs:element minOccurs="0" name="stopRemerge" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="FuzzySearchRequest">
+<xs:sequence>
+<xs:element name="party" type="tns:WParty"/>
+<xs:element minOccurs="0" name="relatedEssences">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="party" type="tns:WParty"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="maxCount" type="xs:int"/>
+<xs:element minOccurs="0" name="includePartyFields" type="xs:boolean"/>
+<xs:element minOccurs="0" name="minMatchScope" type="xs:int"/>
+<xs:element minOccurs="0" name="matchRules">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="rule" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="include" type="tns:WInclude"/>
+<xs:element minOccurs="0" name="includeRequestData" type="tns:WInclude"/>
+<xs:element minOccurs="0" name="includeHouseholdMatches" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CloseAttributeByRawIdResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="FuzzySearchResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="party" type="tns:WParty"/>
+<xs:element minOccurs="0" name="relatedEssences">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="party" type="tns:WParty"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="matchedCounts" type="tns:WMatchedPartyCounts"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="matchedParty" nillable="true" type="tns:WMatchedParty"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="householdParty" nillable="true" type="tns:WMatchedParty"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="WMatchedPartyCounts">
+<xs:sequence>
+<xs:element name="guaranteed" type="xs:int"/>
+<xs:element name="potential" type="xs:int"/>
+<xs:element name="household" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SearchConsentsResponse">
+<xs:sequence>
+<xs:element name="countByQuery" type="xs:int"/>
+<xs:element name="countWithConsents" type="xs:int"/>
+<xs:element maxOccurs="unbounded" name="party" type="tns:WParty"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CloseRequest">
+<xs:all>
+<xs:element minOccurs="0" name="hid" type="xs:long"/>
+<xs:element minOccurs="0" name="sourceSystem" type="xs:string"/>
+<xs:element minOccurs="0" name="rawId" type="xs:string"/>
+<xs:element minOccurs="0" name="partyType" type="xs:string"/>
+<xs:element minOccurs="0" name="flags" type="xs:string"/>
+</xs:all>
+</xs:complexType>
+<xs:complexType name="CheckBlackListByHidRequest">
+<xs:sequence>
+<xs:element name="hid" type="xs:long"/>
+<xs:element name="partyType" type="xs:string"/>
+<xs:element minOccurs="0" name="includePartyFields" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SaveRelationsResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="SaveAndMergeRequest">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="party" type="tns:WParty"/>
+<xs:element minOccurs="0" name="include" type="tns:WInclude"/>
+<xs:element minOccurs="0" name="updateType" type="xs:string"/>
+<xs:element minOccurs="0" name="flags" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SaveConsentsResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="party" type="tns:WParty"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetByRawIDRequest">
+<xs:sequence>
+<xs:element name="sourceSystem" type="xs:string"/>
+<xs:element name="rawId" type="xs:string"/>
+<xs:element name="partyType" type="xs:string"/>
+<xs:element minOccurs="0" name="includeRelations" type="xs:boolean"/>
+<xs:element minOccurs="0" name="include" type="tns:WInclude"/>
+<xs:element minOccurs="0" name="customInclude" type="tns:WCustomInclude"/>
+<xs:element minOccurs="0" name="onlySourceParty" type="xs:boolean"/>
+<xs:element minOccurs="0" name="lastChangeTimestamp" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetReferenceResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="reference" type="tns:WReference"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="WReference">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="entry" nillable="true" type="tns:WReferenceEntry"/>
+</xs:sequence>
+<xs:attribute name="type" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="WReferenceEntry">
+<xs:sequence>
+<xs:element minOccurs="0" name="partyType" type="xs:string"/>
+<xs:element name="actual" type="xs:boolean"/>
+<xs:element name="ordinal" type="xs:int"/>
+<xs:element name="label" type="xs:string"/>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+</xs:sequence>
+<xs:attribute name="code" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="GetRelationsRequest">
+<xs:sequence>
+<xs:element name="essence" type="tns:WEssenceIdentifier"/>
+<xs:element minOccurs="0" name="relationType" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SaveRequest">
+<xs:sequence>
+<xs:element name="party" type="tns:WParty"/>
+<xs:element minOccurs="0" name="include" type="tns:WInclude"/>
+<xs:element minOccurs="0" name="updateType" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SaveAndMergeResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="party" type="tns:WParty"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SaveRelationsRequest">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="relation" type="tns:WRelation"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetSourceAttributesResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" nillable="true" type="tns:WAttribute"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetByHIDResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="party" type="tns:WParty"/>
+<xs:element minOccurs="0" name="notModified" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SearchRelatedPartiesResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="searchStatus" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="relatedPartiesEntry" nillable="true" type="tns:WRelatedPartiesEntry"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="WRelatedPartiesEntry">
+<xs:sequence>
+<xs:element name="firstParty" type="tns:WParty"/>
+<xs:element name="secondParty" type="tns:WParty"/>
+<xs:element maxOccurs="unbounded" name="relation" type="tns:WRelation"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetReferenceRequest">
+<xs:sequence>
+<xs:element name="referenceType" type="xs:string"/>
+<xs:element minOccurs="0" name="partyType" type="xs:string"/>
+<xs:element minOccurs="0" name="onlyActual" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetByHIDRequest">
+<xs:sequence>
+<xs:element name="hid" type="xs:long"/>
+<xs:element minOccurs="0" name="partyType" type="xs:string"/>
+<xs:element minOccurs="0" name="includeRelations" type="xs:boolean"/>
+<xs:element minOccurs="0" name="include" type="tns:WInclude"/>
+<xs:element minOccurs="0" name="customInclude" type="tns:WCustomInclude"/>
+<xs:element minOccurs="0" name="onlySourceParty" type="xs:boolean"/>
+<xs:element minOccurs="0" name="lastChangeTimestamp" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SearchConsentsRequest">
+<xs:all>
+<xs:element name="query" type="xs:string"/>
+<xs:element name="partyType" type="xs:string"/>
+<xs:element minOccurs="0" name="consentActivityDate" type="xs:string"/>
+<xs:element minOccurs="0" name="consentTypes">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="type" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="consentValues">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="include" type="tns:WInclude"/>
+<xs:element minOccurs="0" name="maxCount" type="xs:positiveInteger"/>
+</xs:all>
+</xs:complexType>
+<xs:complexType name="CheckBlacklistByRawIDRequest">
+<xs:sequence>
+<xs:element name="sourceSystem" type="xs:string"/>
+<xs:element name="rawId" type="xs:string"/>
+<xs:element name="partyType" type="xs:string"/>
+<xs:element minOccurs="0" name="includePartyFields" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="FindInFnsResponse">
+<xs:sequence>
+<xs:element name="found" type="xs:boolean"/>
+<xs:element minOccurs="0" name="inn" type="xs:string"/>
+<xs:element minOccurs="0" name="fnsErrorCode" type="xs:string"/>
+<xs:element minOccurs="0" name="fnsErrorMessage" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CloseAttributeByRawIdRequest">
+<xs:sequence>
+<xs:element name="partyIdentifier" type="tns:WEssenceIdentifier"/>
+<xs:element name="attributeType" type="xs:string"/>
+<xs:element name="attributeRawId" type="xs:string"/>
+<xs:element default="true" minOccurs="0" name="savePastValue" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetRelationsResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="relation" nillable="true" type="tns:WRelation"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetByRawIDResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="party" type="tns:WParty"/>
+<xs:element minOccurs="0" name="notModified" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetSourceAttributesRequest">
+<xs:sequence>
+<xs:element name="partyType" type="xs:string"/>
+<xs:element name="attributeType" type="xs:string"/>
+<xs:element name="attributeHid" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CloseAttributeResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="DepersonalizeRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="hid" type="xs:long"/>
+<xs:element minOccurs="0" name="sourceSystem" type="xs:string"/>
+<xs:element minOccurs="0" name="rawId" type="xs:string"/>
+<xs:element name="partyType" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DepersonalizeResponse">
+<xs:sequence>
+<xs:element name="party" type="tns:WParty"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="FindInFnsRequest">
+<xs:all>
+<xs:element name="surname" type="xs:string"/>
+<xs:element name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="patronymic" type="xs:string"/>
+<xs:element name="birthdate" type="xs:date"/>
+<xs:element name="documentCode" type="xs:string"/>
+<xs:element minOccurs="0" name="documentSeries" type="xs:string"/>
+<xs:element name="documentNumber" type="xs:string"/>
+</xs:all>
+</xs:complexType>
+<xs:complexType name="ErrorMessage">
+<xs:sequence>
+<xs:element minOccurs="0" name="errorType" type="xs:string"/>
+<xs:element minOccurs="0" name="errorMessage" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="WPartyInfo">
+<xs:restriction base="xs:string">
+<xs:enumeration value="REQUISITE"/>
+<xs:enumeration value="ATTRIBUTE"/>
+<xs:enumeration value="SUBATTRIBUTE"/>
+<xs:enumeration value="SECRET_ATTRIBUTE"/>
+<xs:enumeration value="SOURCE"/>
+<xs:enumeration value="RELATION"/>
+<xs:enumeration value="PAST_ATTRIBUTE"/>
+<xs:enumeration value="RELATION_ATTRIBUTE"/>
+<xs:enumeration value="ALL_PARTY"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="WSearchRelatedPartiesStatus">
+<xs:restriction base="xs:string">
+<xs:enumeration value="NOT_FOUND"/>
+<xs:enumeration value="TOO_MANY_FOUND_BY_FIRST"/>
+<xs:enumeration value="TOO_MANY_FOUND_BY_SECOND"/>
+<xs:enumeration value="NOT_ALL_ENTRIES_RETURNED"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="SearchRequest" type="tns:SearchRequest"/>
+<xs:element name="CheckBlacklistRequest" type="tns:CheckBlacklistRequest"/>
+<xs:element name="SaveConsentsRequest" type="tns:SaveConsentsRequest"/>
+<xs:element name="SaveResponse" type="tns:SaveResponse"/>
+<xs:element name="CloseResponse" type="tns:CloseResponse"/>
+<xs:element name="CloseAttributeRequest" type="tns:CloseAttributeRequest"/>
+<xs:element name="CheckBlacklistResponse" type="tns:CheckBlacklistResponse"/>
+<xs:element name="SearchResponse" type="tns:SearchResponse"/>
+<xs:element name="UnmergePartyResponse" type="tns:UnmergePartyResponse"/>
+<xs:element name="SearchRelatedPartiesRequest" type="tns:SearchRelatedPartiesRequest"/>
+<xs:element name="UnmergePartyRequest" type="tns:UnmergePartyRequest"/>
+<xs:element name="FuzzySearchRequest" type="tns:FuzzySearchRequest"/>
+<xs:element name="CloseAttributeByRawIdResponse" type="tns:CloseAttributeByRawIdResponse"/>
+<xs:element name="FuzzySearchResponse" type="tns:FuzzySearchResponse"/>
+<xs:element name="SearchConsentsResponse" type="tns:SearchConsentsResponse"/>
+<xs:element name="CloseRequest" type="tns:CloseRequest"/>
+<xs:element name="CheckBlackListByHidRequest" type="tns:CheckBlackListByHidRequest"/>
+<xs:element name="SaveRelationsResponse" type="tns:SaveRelationsResponse"/>
+<xs:element name="SaveAndMergeRequest" type="tns:SaveAndMergeRequest"/>
+<xs:element name="SaveConsentsResponse" type="tns:SaveConsentsResponse"/>
+<xs:element name="GetByRawIDRequest" type="tns:GetByRawIDRequest"/>
+<xs:element name="GetReferenceResponse" type="tns:GetReferenceResponse"/>
+<xs:element name="GetRelationsRequest" type="tns:GetRelationsRequest"/>
+<xs:element name="SaveRequest" type="tns:SaveRequest"/>
+<xs:element name="SaveAndMergeResponse" type="tns:SaveAndMergeResponse"/>
+<xs:element name="SaveRelationsRequest" type="tns:SaveRelationsRequest"/>
+<xs:element name="GetSourceAttributesResponse" type="tns:GetSourceAttributesResponse"/>
+<xs:element name="GetByHIDResponse" type="tns:GetByHIDResponse"/>
+<xs:element name="SearchRelatedPartiesResponse" type="tns:SearchRelatedPartiesResponse"/>
+<xs:element name="GetReferenceRequest" type="tns:GetReferenceRequest"/>
+<xs:element name="GetByHIDRequest" type="tns:GetByHIDRequest"/>
+<xs:element name="SearchConsentsRequest" type="tns:SearchConsentsRequest"/>
+<xs:element name="CheckBlacklistByRawIDRequest" type="tns:CheckBlacklistByRawIDRequest"/>
+<xs:element name="FindInFnsResponse" type="tns:FindInFnsResponse"/>
+<xs:element name="CloseAttributeByRawIdRequest" type="tns:CloseAttributeByRawIdRequest"/>
+<xs:element name="GetRelationsResponse" type="tns:GetRelationsResponse"/>
+<xs:element name="GetByRawIDResponse" type="tns:GetByRawIDResponse"/>
+<xs:element name="GetSourceAttributesRequest" type="tns:GetSourceAttributesRequest"/>
+<xs:element name="CloseAttributeResponse" type="tns:CloseAttributeResponse"/>
+<xs:element name="FindInFnsRequest" type="tns:FindInFnsRequest"/>
+</xs:schema>
+</grammars>
+<resources base="https://10.0.18.178:8443/cdi/soap/services/2_13/PartyRA">
+<resource path="/">
+<resource path="checkBlackListByHid">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="checkBlacklist">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="checkBlacklistByRawID">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="close">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="closeAttribute">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="closeAttributeByRawId">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="findInFns">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="fuzzySearch">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="getByHID">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="getByRawID">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="getReference">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="getRelations">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="getSourceAttributes">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="save">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="saveAndMerge">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="saveConsents">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="saveRelations">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="search">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="searchConsents">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="searchRelatedParties">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+<resource path="unmergeParty">
+<method name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+</resource>
+</resources>
+</application>
